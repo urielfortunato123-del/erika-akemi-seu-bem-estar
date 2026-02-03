@@ -1,0 +1,4 @@
+project_id = "fccoexztvxjzidtyhmqz"
+
+[functions.skincare-chat]
+verify_jwt = false

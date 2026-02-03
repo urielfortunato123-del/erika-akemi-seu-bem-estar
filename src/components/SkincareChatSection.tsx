@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Send, Sparkles, Bot, User } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
@@ -20,19 +20,7 @@ export function SkincareChatSection() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
   const { ref, isVisible } = useScrollAnimation(0.1);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    // Only scroll when there are messages (not on initial mount)
-    if (messages.length > 0) {
-      scrollToBottom();
-    }
-  }, [messages]);
 
   const streamChat = async (userMessages: Message[]) => {
     const resp = await fetch(CHAT_URL, {
@@ -243,7 +231,6 @@ export function SkincareChatSection() {
                   </div>
                 </div>
               )}
-              <div ref={messagesEndRef} />
             </div>
 
             {/* Input Area */}

@@ -1,6 +1,7 @@
 import erikaProfessional from '@/assets/erika-professional.png';
 import erikaTeaching from '@/assets/erika-teaching.png';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useParallax } from '@/hooks/useParallax';
 import { Award, BookOpen, Heart } from 'lucide-react';
 
 const credentials = [
@@ -11,6 +12,8 @@ const credentials = [
 
 export function AboutSection() {
   const { ref, isVisible } = useScrollAnimation(0.2);
+  const { ref: parallaxRef1, offset: offset1 } = useParallax({ speed: 0.1 });
+  const { ref: parallaxRef2, offset: offset2 } = useParallax({ speed: 0.15, direction: 'down' });
 
   return (
     <section id="sobre" className="section-padding bg-background relative overflow-hidden">
@@ -33,7 +36,11 @@ export function AboutSection() {
           <div className={`relative transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="grid grid-cols-5 gap-4">
               {/* Main image */}
-              <div className="col-span-3 image-modern">
+              <div 
+                ref={parallaxRef1}
+                className="col-span-3 image-modern transition-transform duration-100 ease-out"
+                style={{ transform: `translateY(${offset1}px)` }}
+              >
                 <img
                   src={erikaProfessional}
                   alt="Erika Akemi - Profissional"
@@ -41,7 +48,11 @@ export function AboutSection() {
                 />
               </div>
               {/* Secondary image with offset */}
-              <div className="col-span-2 mt-12">
+              <div 
+                ref={parallaxRef2}
+                className="col-span-2 mt-12 transition-transform duration-100 ease-out"
+                style={{ transform: `translateY(${offset2}px)` }}
+              >
                 <div className="image-modern">
                   <img
                     src={erikaTeaching}

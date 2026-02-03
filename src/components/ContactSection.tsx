@@ -16,48 +16,66 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contato" className="section-padding bg-background relative overflow-hidden">
-      {/* Subtle decorative */}
-      <div className="absolute top-20 left-10 w-48 h-48 bg-sand rounded-full blur-3xl opacity-30" />
+    <section id="contato" className="section-padding bg-background">
+      <div className="container-narrow">
+        <div className="max-w-2xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="w-full h-px bg-primary/20 mb-8"></div>
+            <h2 className="font-display text-sm md:text-base tracking-[0.3em] text-primary uppercase">
+              Contato
+            </h2>
+            <div className="w-full h-px bg-primary/20 mt-8"></div>
+          </div>
 
-      <div className="container-narrow relative z-10">
-        <div className="max-w-2xl mx-auto text-center">
-          <span className="font-body text-sm text-primary uppercase tracking-[0.2em] mb-4 block">
-            Contato
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4">
-            Vamos cuidar de você <span className="text-primary">do jeito certo?</span>
-          </h2>
-          <p className="font-body text-lg text-muted-foreground mb-10">
-            Me conte seu objetivo e eu te explico o melhor caminho.
-          </p>
+          <div className="text-center mb-12">
+            <h3 className="font-display text-2xl md:text-3xl font-medium text-foreground mb-4">
+              Vamos cuidar de você?
+            </h3>
+            <p className="font-body text-muted-foreground">
+              Me conte seu objetivo e eu te explico o melhor caminho.
+            </p>
+          </div>
 
-          {/* Quick Message Form */}
-          <form onSubmit={handleSubmit} className="space-y-4 mb-10">
-            <input
-              type="text"
-              placeholder="Seu nome"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full px-5 py-4 bg-card border border-border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-              required
-            />
-            <textarea
-              placeholder="Qual seu objetivo? (ex: perder peso, cuidar da pele, reduzir estresse...)"
-              value={objective}
-              onChange={(e) => setObjective(e.target.value)}
-              rows={3}
-              className="w-full px-5 py-4 bg-card border border-border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all resize-none"
-              required
-            />
-            <Button size="lg" type="submit" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-8">
-              Enviar pelo WhatsApp
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="space-y-6 mb-12">
+            <div>
+              <label className="block font-body text-xs tracking-[0.1em] text-muted-foreground uppercase mb-2">
+                Nome
+              </label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full px-4 py-3 bg-secondary/50 border-0 font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-all"
+                required
+              />
+            </div>
+            <div>
+              <label className="block font-body text-xs tracking-[0.1em] text-muted-foreground uppercase mb-2">
+                Objetivo
+              </label>
+              <textarea
+                value={objective}
+                onChange={(e) => setObjective(e.target.value)}
+                rows={3}
+                placeholder="Ex: perder peso, cuidar da pele, reduzir estresse..."
+                className="w-full px-4 py-3 bg-secondary/50 border-0 font-body text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-all resize-none"
+                required
+              />
+            </div>
+            <Button 
+              size="lg" 
+              type="submit" 
+              className="w-full bg-muted-foreground hover:bg-muted-foreground/80 text-background tracking-[0.1em] uppercase text-sm"
+            >
+              Enviar
             </Button>
           </form>
 
-          {/* Location */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-muted-foreground">
-            <div className="flex items-center gap-2 px-4 py-2 bg-secondary rounded-full">
+          {/* Location & Social */}
+          <div className="flex flex-wrap items-center justify-center gap-6 text-muted-foreground">
+            <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-primary" />
               <span className="font-body text-sm">Bauru/SP</span>
             </div>
@@ -65,9 +83,9 @@ export function ContactSection() {
               href="https://instagram.com/erika._akemi"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-secondary rounded-full hover:bg-secondary/80 transition-colors"
+              className="flex items-center gap-2 hover:text-primary transition-colors"
             >
-              <Instagram className="w-4 h-4 text-primary" />
+              <Instagram className="w-4 h-4" />
               <span className="font-body text-sm">@erika._akemi</span>
             </a>
           </div>

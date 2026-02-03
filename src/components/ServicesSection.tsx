@@ -1,75 +1,140 @@
-import { Apple, Sparkles, Leaf, Heart } from 'lucide-react';
+import erikaLifestyle from '@/assets/erika-lifestyle.png';
 
 const WHATSAPP_LINK = "https://wa.me/5514999999999?text=Ol%C3%A1%20Erika!%20Quero%20saber%20mais%20sobre%20";
 
 const services = [
   {
-    icon: Apple,
-    title: 'Nutrição clínica e reeducação alimentar',
-    description: 'Plano alimentar individualizado com foco em saúde, rotina e constância.',
-    whatsappText: 'Nutrição%20clínica',
+    title: 'Nutrição Clínica',
+    items: [
+      'Reeducação alimentar',
+      'Plano alimentar individualizado',
+      'Acompanhamento nutricional',
+      'Nutrição funcional',
+    ],
+    whatsappText: 'Nutrição%20Clínica',
   },
   {
-    icon: Sparkles,
-    title: 'Nutrição estética',
-    description: 'Estratégias para composição corporal, pele e bem-estar, respeitando sua realidade.',
-    whatsappText: 'Nutrição%20estética',
+    title: 'Nutrição Estética',
+    items: [
+      'Composição corporal',
+      'Saúde da pele',
+      'Protocolos anti-aging',
+      'Suplementação estratégica',
+    ],
+    whatsappText: 'Nutrição%20Estética',
   },
+];
+
+const servicesAlt = [
   {
-    icon: Leaf,
     title: 'Acupuntura',
-    description: 'Apoio para equilíbrio do corpo e da mente, dores e estresse, com abordagem integrativa.',
+    items: [
+      'Equilíbrio energético',
+      'Alívio de dores',
+      'Redução de estresse',
+      'Tratamento integrativo',
+    ],
     whatsappText: 'Acupuntura',
   },
   {
-    icon: Heart,
-    title: 'Estética avançada',
-    description: 'Cuidados estéticos com foco em autoestima e resultados consistentes.',
-    whatsappText: 'Estética%20avançada',
+    title: 'Estética Avançada',
+    items: [
+      'Protocolos faciais',
+      'Tratamentos corporais',
+      'Harmonização facial',
+      'Cuidados com a pele',
+    ],
+    whatsappText: 'Estética%20Avançada',
   },
 ];
 
 export function ServicesSection() {
   return (
-    <section id="servicos" className="section-padding bg-secondary/30 relative overflow-hidden">
-      <div className="container-narrow relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <span className="font-body text-sm text-primary uppercase tracking-[0.2em] mb-4 block">
+    <section id="servicos" className="section-padding bg-secondary/30">
+      <div className="container-narrow">
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          <div className="w-full h-px bg-primary/20 mb-8"></div>
+          <h2 className="font-display text-sm md:text-base tracking-[0.3em] text-primary uppercase">
             Serviços
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground">
-            Como eu posso <span className="text-primary">te ajudar</span>
           </h2>
+          <div className="w-full h-px bg-primary/20 mt-8"></div>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="group bg-card p-8 rounded-xl shadow-soft hover:shadow-card transition-all duration-300 border border-border"
-            >
-              <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors duration-300">
-                <service.icon className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-3">
-                {service.title}
-              </h3>
-              <p className="font-body text-muted-foreground leading-relaxed mb-4">
-                {service.description}
-              </p>
-              <a
-                href={`${WHATSAPP_LINK}${service.whatsappText}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-body text-sm text-primary hover:text-primary/80 transition-colors"
-              >
-                Saber mais
-                <span className="text-lg">→</span>
-              </a>
+        {/* First Row - Image Left */}
+        <div className="grid lg:grid-cols-2 gap-0 mb-0">
+          <div className="bg-sand h-64 lg:h-auto">
+            <img
+              src={erikaLifestyle}
+              alt="Nutrição"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="bg-sand/50 p-10 lg:p-16 flex flex-col justify-center">
+            <div className="grid md:grid-cols-2 gap-10">
+              {services.map((service) => (
+                <div key={service.title}>
+                  <h3 className="font-display text-xl md:text-2xl text-foreground mb-6">
+                    {service.title}
+                  </h3>
+                  <ul className="space-y-3">
+                    {service.items.map((item) => (
+                      <li key={item} className="font-body text-sm text-muted-foreground flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={`${WHATSAPP_LINK}${service.whatsappText}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-6 font-body text-sm text-primary hover:text-primary/80 transition-colors tracking-[0.05em]"
+                  >
+                    Saber mais →
+                  </a>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+        </div>
+
+        {/* Second Row - Image Right */}
+        <div className="grid lg:grid-cols-2 gap-0">
+          <div className="bg-sand/50 p-10 lg:p-16 flex flex-col justify-center order-2 lg:order-1">
+            <div className="grid md:grid-cols-2 gap-10">
+              {servicesAlt.map((service) => (
+                <div key={service.title}>
+                  <h3 className="font-display text-xl md:text-2xl text-foreground mb-6">
+                    {service.title}
+                  </h3>
+                  <ul className="space-y-3">
+                    {service.items.map((item) => (
+                      <li key={item} className="font-body text-sm text-muted-foreground flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={`${WHATSAPP_LINK}${service.whatsappText}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-6 font-body text-sm text-primary hover:text-primary/80 transition-colors tracking-[0.05em]"
+                  >
+                    Saber mais →
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="bg-sand h-64 lg:h-auto order-1 lg:order-2">
+            <img
+              src={erikaLifestyle}
+              alt="Acupuntura e Estética"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>

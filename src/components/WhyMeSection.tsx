@@ -52,28 +52,31 @@ export function WhyMeSection() {
             {benefits.map((benefit, index) => (
               <div
                 key={benefit.title}
-                className={`card-modern p-8 group transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                style={{ transitionDelay: `${200 + index * 100}ms` }}
+                className={`card-modern p-8 group transition-all duration-700 hover:shadow-glow ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'}`}
+                style={{ transitionDelay: `${200 + index * 150}ms` }}
               >
                 <div className="flex items-start gap-5">
                   {/* Icon */}
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <benefit.icon className="w-6 h-6 text-primary" />
+                  <div className={`w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}
+                       style={{ transitionDelay: `${300 + index * 150}ms` }}>
+                    <benefit.icon className="w-6 h-6 text-primary transition-transform duration-300 group-hover:scale-110" />
                   </div>
                   
                   {/* Content */}
                   <div>
-                    <h3 className="font-display text-xl md:text-2xl font-medium text-foreground mb-2 group-hover:text-primary transition-colors">
+                    <h3 className={`font-display text-xl md:text-2xl font-medium text-foreground mb-2 group-hover:text-primary transition-all duration-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+                        style={{ transitionDelay: `${350 + index * 150}ms` }}>
                       {benefit.title}
                     </h3>
-                    <p className="font-body text-muted-foreground leading-relaxed">
+                    <p className={`font-body text-muted-foreground leading-relaxed transition-all duration-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+                       style={{ transitionDelay: `${400 + index * 150}ms` }}>
                       {benefit.description}
                     </p>
                   </div>
                 </div>
 
                 {/* Checkmark */}
-                <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className={`absolute top-4 right-4 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center transition-all duration-500 ${isVisible ? 'opacity-0 group-hover:opacity-100 scale-100' : 'opacity-0 scale-0'}`}>
                   <Check className="w-3 h-3 text-primary" />
                 </div>
               </div>

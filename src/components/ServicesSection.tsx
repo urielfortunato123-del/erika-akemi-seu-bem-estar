@@ -82,14 +82,22 @@ export function ServicesSection() {
           <div className="glass-card backdrop-blur-none bg-card/95 p-10 lg:p-14 flex flex-col justify-center">
             <div className="grid md:grid-cols-2 gap-10">
               {services.map((service, index) => (
-                <div key={service.title} className="group" style={{ animationDelay: `${index * 100}ms` }}>
+                <div 
+                  key={service.title} 
+                  className={`group transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                  style={{ transitionDelay: `${400 + index * 150}ms` }}
+                >
                   <h3 className="font-display text-2xl md:text-3xl text-foreground mb-6 group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
                   <ul className="space-y-3">
-                    {service.items.map((item) => (
-                      <li key={item} className="font-body text-sm text-muted-foreground flex items-start gap-3">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    {service.items.map((item, itemIndex) => (
+                      <li 
+                        key={item} 
+                        className={`font-body text-sm text-muted-foreground flex items-start gap-3 transition-all duration-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+                        style={{ transitionDelay: `${600 + index * 150 + itemIndex * 80}ms` }}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0 transition-transform group-hover:scale-150" />
                         {item}
                       </li>
                     ))}
@@ -98,7 +106,8 @@ export function ServicesSection() {
                     href={`${WHATSAPP_LINK}${service.whatsappText}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 mt-6 font-body text-sm text-primary hover:text-primary/80 transition-all group/link"
+                    className={`inline-flex items-center gap-2 mt-6 font-body text-sm text-primary hover:text-primary/80 transition-all group/link btn-pop ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                    style={{ transitionDelay: `${800 + index * 150}ms` }}
                   >
                     Saber mais
                     <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
@@ -114,14 +123,22 @@ export function ServicesSection() {
           <div className="glass-card backdrop-blur-none bg-card/95 p-10 lg:p-14 flex flex-col justify-center order-2 lg:order-1">
             <div className="grid md:grid-cols-2 gap-10">
               {servicesAlt.map((service, index) => (
-                <div key={service.title} className="group" style={{ animationDelay: `${index * 100}ms` }}>
+                <div 
+                  key={service.title} 
+                  className={`group transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                  style={{ transitionDelay: `${600 + index * 150}ms` }}
+                >
                   <h3 className="font-display text-2xl md:text-3xl text-foreground mb-6 group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
                   <ul className="space-y-3">
-                    {service.items.map((item) => (
-                      <li key={item} className="font-body text-sm text-muted-foreground flex items-start gap-3">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    {service.items.map((item, itemIndex) => (
+                      <li 
+                        key={item} 
+                        className={`font-body text-sm text-muted-foreground flex items-start gap-3 transition-all duration-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+                        style={{ transitionDelay: `${800 + index * 150 + itemIndex * 80}ms` }}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0 transition-transform group-hover:scale-150" />
                         {item}
                       </li>
                     ))}
@@ -130,7 +147,8 @@ export function ServicesSection() {
                     href={`${WHATSAPP_LINK}${service.whatsappText}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 mt-6 font-body text-sm text-primary hover:text-primary/80 transition-all group/link"
+                    className={`inline-flex items-center gap-2 mt-6 font-body text-sm text-primary hover:text-primary/80 transition-all group/link btn-pop ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                    style={{ transitionDelay: `${1000 + index * 150}ms` }}
                   >
                     Saber mais
                     <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />

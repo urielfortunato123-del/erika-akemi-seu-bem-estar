@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import erikaHero from '@/assets/erika-hero.png';
 import { ArrowRight, Sparkles, Play } from 'lucide-react';
 import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
+import { useParallax } from '@/hooks/useParallax';
 
 const WHATSAPP_LINK = "https://wa.me/5514999999999?text=Ol%C3%A1%20Erika!%20Quero%20agendar%20uma%20consulta.";
 
@@ -9,6 +10,7 @@ export function HeroSection() {
   const yearsCounter = useAnimatedCounter({ end: 10, duration: 2000, delay: 500 });
   const patientsCounter = useAnimatedCounter({ end: 500, duration: 2500, delay: 700 });
   const specialtiesCounter = useAnimatedCounter({ end: 4, duration: 1500, delay: 900 });
+  const { ref: parallaxRef, offset: parallaxOffset } = useParallax({ speed: 0.15 });
 
   return (
     <section
@@ -111,7 +113,11 @@ export function HeroSection() {
 
           {/* Image */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end animate-blur-in">
-            <div className="relative">
+            <div 
+              ref={parallaxRef}
+              className="relative transition-transform duration-100 ease-out"
+              style={{ transform: `translateY(${parallaxOffset}px)` }}
+            >
               {/* Image frame decoration */}
               <div className="absolute -inset-6 border border-primary/20 rounded-3xl -z-10 hidden md:block" />
               <div className="absolute -inset-3 border border-primary/10 rounded-2xl -z-10 hidden md:block" />

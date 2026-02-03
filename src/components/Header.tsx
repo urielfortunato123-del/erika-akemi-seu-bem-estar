@@ -35,12 +35,13 @@ export function Header() {
       <div className="container-narrow flex items-center justify-between">
         {/* Logo - Centered */}
         <a href="#inicio" className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
-          <span className="font-display text-3xl md:text-4xl font-semibold text-foreground tracking-[0.3em]">
+          <span className="font-display text-3xl md:text-4xl font-semibold text-primary tracking-[0.3em]">
             EA
           </span>
-          <span className="font-body text-[10px] md:text-xs tracking-[0.25em] text-muted-foreground uppercase mt-0.5">
+          <span className="font-body text-[10px] md:text-xs tracking-[0.25em] text-muted-foreground uppercase mt-1">
             Erika Akemi
           </span>
+          <div className="w-12 h-[1px] bg-primary/30 mt-2 hidden md:block"></div>
         </a>
 
         {/* Empty space for balance */}
@@ -61,9 +62,9 @@ export function Header() {
 
         {/* CTA Button */}
         <div className="hidden lg:block">
-          <Button variant="hero" size="lg" asChild>
+          <Button variant="default" size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-              Agendar no WhatsApp
+              Agendar Consulta
             </a>
           </Button>
         </div>
@@ -92,9 +93,9 @@ export function Header() {
                 {item.label}
               </a>
             ))}
-            <Button variant="hero" size="lg" className="mt-4" asChild>
+            <Button variant="default" size="lg" className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                Agendar no WhatsApp
+                Agendar Consulta
               </a>
             </Button>
           </nav>

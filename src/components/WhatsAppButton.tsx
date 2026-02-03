@@ -8,7 +8,7 @@ export function WhatsAppButton() {
       href={WHATSAPP_LINK}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white px-5 py-3 rounded-full shadow-elevated hover:shadow-glow transition-all duration-300 hover:scale-105 animate-pulse-soft"
+      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] hover:bg-[#128C7E] text-white px-5 py-3 rounded-full shadow-card hover:shadow-elevated transition-all duration-300 hover:scale-105"
       aria-label="Abrir WhatsApp"
     >
       <MessageCircle className="w-5 h-5" />

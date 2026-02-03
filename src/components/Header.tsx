@@ -33,12 +33,18 @@ export function Header() {
       }`}
     >
       <div className="container-narrow flex items-center justify-between">
-        {/* Logo */}
-        <a href="#inicio" className="flex items-center gap-2">
-          <span className="font-display text-2xl md:text-3xl font-semibold bg-gradient-to-r from-rose to-coral bg-clip-text text-transparent tracking-tight">
+        {/* Logo - Centered */}
+        <a href="#inicio" className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
+          <span className="font-display text-3xl md:text-4xl font-semibold text-foreground tracking-[0.3em]">
+            EA
+          </span>
+          <span className="font-body text-[10px] md:text-xs tracking-[0.25em] text-muted-foreground uppercase mt-0.5">
             Erika Akemi
           </span>
         </a>
+
+        {/* Empty space for balance */}
+        <div className="w-24 lg:hidden"></div>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">

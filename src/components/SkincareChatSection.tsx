@@ -28,7 +28,10 @@ export function SkincareChatSection() {
   };
 
   useEffect(() => {
-    scrollToBottom();
+    // Only scroll when there are messages (not on initial mount)
+    if (messages.length > 0) {
+      scrollToBottom();
+    }
   }, [messages]);
 
   const streamChat = async (userMessages: Message[]) => {

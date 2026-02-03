@@ -1,4 +1,5 @@
 import erikaLifestyle from '@/assets/erika-lifestyle.png';
+import erikaCertificates from '@/assets/erika-certificates.png';
 
 const WHATSAPP_LINK = "https://wa.me/5514999999999?text=Ol%C3%A1%20Erika!%20Quero%20saber%20mais%20sobre%20";
 
@@ -130,7 +131,7 @@ export function ServicesSection() {
           </div>
           <div className="bg-sand h-64 lg:h-auto order-1 lg:order-2">
             <img
-              src={erikaLifestyle}
+              src={erikaCertificates}
               alt="Acupuntura e Estética"
               className="w-full h-full object-cover"
             />

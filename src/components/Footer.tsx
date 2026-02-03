@@ -1,52 +1,61 @@
-import { Instagram, Heart } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 
 const WHATSAPP_LINK = "https://wa.me/5514999999999?text=Ol%C3%A1%20Erika!%20Quero%20agendar%20uma%20consulta.";
 
 export function Footer() {
   return (
-    <footer className="py-12 bg-secondary/50 border-t border-border">
+    <footer className="py-16 bg-primary text-primary-foreground">
       <div className="container-narrow">
-        <div className="flex flex-col items-center gap-6">
-          {/* Logo */}
-          <div className="text-center">
-            <span className="font-display text-2xl font-semibold text-primary tracking-[0.2em]">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Logo & Info */}
+          <div>
+            <span className="font-display text-4xl font-semibold tracking-[0.2em] text-primary-foreground">
               EA
             </span>
-            <p className="font-body text-xs tracking-[0.15em] text-muted-foreground uppercase mt-1">
+            <p className="font-body text-xs tracking-[0.2em] uppercase mt-2 text-primary-foreground/70">
               Erika Akemi
             </p>
+            
+            <div className="mt-8 space-y-2 text-primary-foreground/80">
+              <p className="font-body text-sm">
+                <span className="font-medium text-primary-foreground">Bauru:</span> Atendimento presencial
+              </p>
+            </div>
           </div>
 
-          {/* Links */}
-          <div className="flex items-center gap-8">
-            <a
-              href="https://www.instagram.com/erika._akemi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-5 h-5" />
-            </a>
+          {/* Social & Contact */}
+          <div className="md:text-right">
+            <h4 className="font-display text-sm tracking-[0.2em] uppercase mb-6 text-primary-foreground/70">
+              Redes Sociais
+            </h4>
+            <div className="flex md:justify-end gap-6 mb-8">
+              <a
+                href="https://www.instagram.com/erika._akemi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
+            
             <a
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body text-sm text-muted-foreground hover:text-primary transition-colors"
+              className="font-body text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
             >
               WhatsApp
             </a>
           </div>
+        </div>
 
-          {/* Copyright */}
-          <div className="text-center pt-6 border-t border-border w-full">
-            <p className="font-body text-xs text-muted-foreground">
-              © {new Date().getFullYear()} Erika Akemi — Todos os direitos reservados
-            </p>
-            <p className="font-body text-xs text-muted-foreground mt-2 flex items-center justify-center gap-1">
-              Este site não substitui uma consulta profissional
-            </p>
-          </div>
+        {/* Bottom */}
+        <div className="mt-12 pt-8 border-t border-primary-foreground/20 text-center">
+          <p className="font-body text-xs text-primary-foreground/50">
+            © {new Date().getFullYear()} Erika Akemi — Todos os direitos reservados
+          </p>
         </div>
       </div>
     </footer>

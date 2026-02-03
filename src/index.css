@@ -152,6 +152,24 @@
     @apply font-light leading-relaxed;
   }
 
+  /* Elegant letter-spacing for headings */
+  .tracking-elegant {
+    letter-spacing: 0.15em;
+  }
+
+  .tracking-wide-elegant {
+    letter-spacing: 0.25em;
+  }
+
+  /* Decorative horizontal lines */
+  .line-decorator {
+    @apply w-full h-px bg-primary/30;
+  }
+
+  .line-decorator-short {
+    @apply w-24 h-px bg-primary/40 mx-auto;
+  }
+
   .gradient-hero {
     background: var(--gradient-hero);
   }
@@ -162,18 +180,6 @@
 
   .gradient-primary {
     background: var(--gradient-primary);
-  }
-
-  .gradient-mint {
-    background: var(--gradient-mint);
-  }
-
-  .gradient-sunset {
-    background: var(--gradient-sunset);
-  }
-
-  .gradient-lavender {
-    background: var(--gradient-lavender);
   }
 
   .shadow-soft {
@@ -188,12 +194,8 @@
     box-shadow: var(--shadow-elevated);
   }
 
-  .shadow-glow {
-    box-shadow: var(--shadow-glow);
-  }
-
   .section-padding {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-20 md:py-28 lg:py-36;
   }
 
   .container-narrow {
@@ -226,15 +228,6 @@
     to {
       opacity: 1;
     }
-  }
-
-  /* Decorative blobs */
-  .blob-decoration {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.4;
-    pointer-events: none;
   }
 }
 

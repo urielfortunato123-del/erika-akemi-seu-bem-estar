@@ -3,16 +3,16 @@ import erikaProfessional from '@/assets/erika-professional.png';
 import erikaTeaching from '@/assets/erika-teaching.png';
 
 const badges = [
-  { icon: Heart, label: 'Cuidado humanizado', color: 'bg-rose-light border-rose/20' },
-  { icon: BookOpen, label: 'Tradição + ciência', color: 'bg-lavender-light border-lavender/30' },
-  { icon: Sparkles, label: 'Educação e transformação', color: 'bg-mint-light border-mint/20' },
+  { icon: Heart, label: 'Cuidado humanizado' },
+  { icon: BookOpen, label: 'Tradição + ciência' },
+  { icon: Sparkles, label: 'Educação e transformação' },
 ];
 
 export function AboutSection() {
   return (
     <section id="sobre" className="section-padding bg-background relative overflow-hidden">
-      {/* Decorative blob */}
-      <div className="absolute top-1/4 right-0 w-80 h-80 bg-coral-light rounded-full blur-3xl opacity-50" />
+      {/* Subtle decorative element */}
+      <div className="absolute top-1/4 right-0 w-80 h-80 bg-sand rounded-full blur-3xl opacity-30" />
       
       <div className="container-narrow relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -22,30 +22,26 @@ export function AboutSection() {
               <img
                 src={erikaProfessional}
                 alt="Erika Akemi - Profissional"
-                className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-card ring-2 ring-rose/10"
+                className="w-full h-64 md:h-80 object-cover rounded-xl shadow-card"
               />
               <img
                 src={erikaTeaching}
                 alt="Erika Akemi - Docente"
-                className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-card mt-8 ring-2 ring-lavender/10"
+                className="w-full h-64 md:h-80 object-cover rounded-xl shadow-card mt-8"
               />
             </div>
-            {/* Decorative */}
-            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-rose-light rounded-full -z-10" />
-            <div className="absolute -top-6 -right-6 w-16 h-16 bg-mint-light rounded-full -z-10" />
-            <div className="absolute top-1/2 -left-4 w-12 h-12 bg-lavender rounded-full -z-10 opacity-60" />
+            {/* Subtle decorative */}
+            <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-sand rounded-full -z-10 opacity-60" />
           </div>
 
           {/* Content */}
           <div>
-            <span className="font-body text-sm text-rose uppercase tracking-widest mb-4 block">
+            <span className="font-body text-sm text-primary uppercase tracking-[0.2em] mb-4 block">
               Minha trajetória
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
               Uma jornada de{' '}
-              <span className="bg-gradient-to-r from-rose to-coral bg-clip-text text-transparent">
-                cuidado e evolução
-              </span>
+              <span className="text-primary">cuidado e evolução</span>
             </h2>
             
             <div className="space-y-4 text-muted-foreground font-body leading-relaxed">
@@ -65,14 +61,14 @@ export function AboutSection() {
             </div>
 
             {/* Badges */}
-            <div className="flex flex-wrap gap-4 mt-8">
+            <div className="flex flex-wrap gap-3 mt-8">
               {badges.map((badge) => (
                 <div
                   key={badge.label}
-                  className={`flex items-center gap-3 px-5 py-3 ${badge.color} rounded-2xl shadow-soft border`}
+                  className="flex items-center gap-3 px-4 py-2 bg-secondary rounded-full"
                 >
-                  <badge.icon className="w-5 h-5 text-rose" />
-                  <span className="font-body text-sm text-foreground">{badge.label}</span>
+                  <badge.icon className="w-4 h-4 text-primary" />
+                  <span className="font-body text-sm text-secondary-foreground">{badge.label}</span>
                 </div>
               ))}
             </div>

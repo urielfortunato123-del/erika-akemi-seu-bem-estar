@@ -1,19 +1,30 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, RefObject } from 'react';
 
 interface UseCounterOptions {
   end: number;
   duration?: number;
   delay?: number;
   startOnView?: boolean;
+  externalRef?: RefObject<HTMLElement>;
 }
 
-export function useAnimatedCounter({ end, duration = 2000, delay = 0, startOnView = true }: UseCounterOptions) {
+export function useAnimatedCounter({ 
+  end, 
+  duration = 2000, 
+  delay = 0, 
+  startOnView = true,
+  externalRef
+}: UseCounterOptions) {
   const [count, setCount] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const internalRef = useRef<HTMLDivElement>(null);
+  
+  // Use external ref if provided, otherwise use internal ref
+  const ref = externalRef || internalRef;
 
   useEffect(() => {
     if (!startOnView) {
+      // Start immediately when startOnView is false
       setHasStarted(true);
       return;
     }
@@ -28,7 +39,7 @@ export function useAnimatedCounter({ end, duration = 2000, delay = 0, startOnVie
           observer.unobserve(element);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
     observer.observe(element);
@@ -36,7 +47,7 @@ export function useAnimatedCounter({ end, duration = 2000, delay = 0, startOnVie
     return () => {
       observer.unobserve(element);
     };
-  }, [startOnView, hasStarted]);
+  }, [startOnView, hasStarted, ref]);
 
   useEffect(() => {
     if (!hasStarted) return;
@@ -67,5 +78,5 @@ export function useAnimatedCounter({ end, duration = 2000, delay = 0, startOnVie
     return () => clearTimeout(timeout);
   }, [hasStarted, end, duration, delay]);
 
-  return { count, ref };
+  return { count, ref: internalRef };
 }

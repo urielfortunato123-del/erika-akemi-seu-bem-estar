@@ -8,8 +8,8 @@ const WHATSAPP_LINK = "https://wa.me/5514999999999?text=Ol%C3%A1%20Erika!%20Quer
 
 export function HeroSection() {
   const yearsCounter = useAnimatedCounter({ end: 10, duration: 2000, delay: 500 });
-  const patientsCounter = useAnimatedCounter({ end: 500, duration: 2500, delay: 700 });
-  const specialtiesCounter = useAnimatedCounter({ end: 4, duration: 1500, delay: 900 });
+  const patientsCounter = useAnimatedCounter({ end: 500, duration: 2500, delay: 500, startOnView: false });
+  const specialtiesCounter = useAnimatedCounter({ end: 4, duration: 1500, delay: 500, startOnView: false });
   const { ref: parallaxRef, offset: parallaxOffset } = useParallax({ speed: 0.15 });
 
   return (

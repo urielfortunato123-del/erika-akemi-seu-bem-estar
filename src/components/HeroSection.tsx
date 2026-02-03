@@ -1,10 +1,15 @@
 import { Button } from '@/components/ui/button';
 import erikaHero from '@/assets/erika-hero.png';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Play } from 'lucide-react';
+import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
 
 const WHATSAPP_LINK = "https://wa.me/5514999999999?text=Ol%C3%A1%20Erika!%20Quero%20agendar%20uma%20consulta.";
 
 export function HeroSection() {
+  const yearsCounter = useAnimatedCounter({ end: 10, duration: 2000, delay: 500 });
+  const patientsCounter = useAnimatedCounter({ end: 500, duration: 2500, delay: 700 });
+  const specialtiesCounter = useAnimatedCounter({ end: 4, duration: 1500, delay: 900 });
+
   return (
     <section
       id="inicio"
@@ -71,25 +76,34 @@ export function HeroSection() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="btn-modern border-2 border-primary/30 text-primary hover:bg-primary/5 hover:border-primary/50" 
+                className="btn-modern border-2 border-primary/30 text-primary hover:bg-primary/5 hover:border-primary/50 group" 
                 asChild
               >
-                <a href="#servicos">Explorar Serviços</a>
+                <a href="#servicos" className="flex items-center gap-2">
+                  <Play className="w-4 h-4" />
+                  Explorar Serviços
+                </a>
               </Button>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 mt-16 pt-8 border-t border-primary/10">
+            {/* Stats with animated counters */}
+            <div ref={yearsCounter.ref} className="grid grid-cols-3 gap-6 mt-16 pt-8 border-t border-primary/10">
               <div className="text-center lg:text-left">
-                <div className="font-display text-3xl md:text-4xl font-semibold text-primary">10+</div>
+                <div className="font-display text-3xl md:text-4xl font-semibold text-primary">
+                  {yearsCounter.count}+
+                </div>
                 <div className="font-body text-sm text-muted-foreground mt-1">Anos de experiência</div>
               </div>
               <div className="text-center lg:text-left">
-                <div className="font-display text-3xl md:text-4xl font-semibold text-primary">500+</div>
+                <div className="font-display text-3xl md:text-4xl font-semibold text-primary">
+                  {patientsCounter.count}+
+                </div>
                 <div className="font-body text-sm text-muted-foreground mt-1">Pacientes atendidos</div>
               </div>
               <div className="text-center lg:text-left">
-                <div className="font-display text-3xl md:text-4xl font-semibold text-primary">4</div>
+                <div className="font-display text-3xl md:text-4xl font-semibold text-primary">
+                  {specialtiesCounter.count}
+                </div>
                 <div className="font-body text-sm text-muted-foreground mt-1">Especialidades</div>
               </div>
             </div>
@@ -128,15 +142,25 @@ export function HeroSection() {
                   </div>
                 </div>
               </div>
+
+              {/* Second floating card */}
+              <div className="absolute -top-4 -right-4 glass-card p-3 rounded-xl shadow-elevated hidden lg:block animate-float" style={{ animationDelay: '1s' }}>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="font-body text-xs text-muted-foreground">Atendendo agora</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-pulse">
-        <div className="font-body text-xs tracking-widest uppercase text-muted-foreground">Scroll</div>
-        <div className="w-px h-8 bg-gradient-to-b from-primary/40 to-transparent" />
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <div className="font-body text-xs tracking-widest uppercase text-muted-foreground animate-pulse">Scroll</div>
+        <div className="w-6 h-10 rounded-full border-2 border-primary/30 flex items-start justify-center p-1">
+          <div className="w-1.5 h-3 rounded-full bg-primary animate-bounce" />
+        </div>
       </div>
     </section>
   );

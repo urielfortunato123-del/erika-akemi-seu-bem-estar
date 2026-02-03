@@ -21,12 +21,12 @@ export function AboutSection() {
               <img
                 src={erikaProfessional}
                 alt="Erika Akemi - Profissional"
-                className="w-full h-72 md:h-96 object-cover"
+                className="w-full h-80 md:h-[450px] object-cover object-top"
               />
               <img
                 src={erikaTeaching}
                 alt="Erika Akemi - Docente"
-                className="w-full h-72 md:h-96 object-cover mt-8"
+                className="w-full h-80 md:h-[450px] object-cover object-top mt-8"
               />
             </div>
           </div>

@@ -124,15 +124,22 @@ export function SkincareChatSection() {
   };
 
   return (
-    <section id="dicas-pele" className="section-padding bg-sand/30">
-      <div className="container-narrow">
+    <section id="dicas-pele" className="section-padding bg-gradient-to-br from-mint-light/30 via-lavender-light/20 to-rose-light/30 relative overflow-hidden">
+      {/* Decorative blobs */}
+      <div className="absolute top-10 right-20 w-48 h-48 bg-mint/15 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 left-20 w-40 h-40 bg-rose/10 rounded-full blur-3xl" />
+
+      <div className="container-narrow relative z-10">
         <div className="text-center mb-10">
-          <span className="font-body text-sm text-primary uppercase tracking-widest mb-4 block">
+          <span className="font-body text-sm text-mint uppercase tracking-widest mb-4 block">
             <Sparkles className="w-4 h-4 inline mr-2" />
             Assistente de Skincare
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4">
-            Tire suas dúvidas sobre cuidados com a pele
+            Tire suas dúvidas sobre{' '}
+            <span className="bg-gradient-to-r from-mint to-lavender bg-clip-text text-transparent">
+              cuidados com a pele
+            </span>
           </h2>
           <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
             Pergunte sobre rotina de skincare, proteção solar, hidratação e muito mais. Para orientações personalizadas, fale diretamente com a Erika!
@@ -141,12 +148,12 @@ export function SkincareChatSection() {
 
         {/* Chat Container */}
         <div className="max-w-2xl mx-auto">
-          <div className="bg-card rounded-3xl shadow-card border border-border overflow-hidden">
+          <div className="bg-card/90 backdrop-blur-sm rounded-3xl shadow-card border border-mint/20 overflow-hidden">
             {/* Chat Header */}
-            <div className="bg-primary/5 px-6 py-4 border-b border-border">
+            <div className="bg-gradient-to-r from-mint-light/50 to-lavender-light/50 px-6 py-4 border-b border-mint/10">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-primary" />
+                <div className="w-10 h-10 rounded-full bg-mint/20 flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-mint" />
                 </div>
                 <div>
                   <h3 className="font-display font-medium text-foreground">Assistente de Skincare</h3>
@@ -159,7 +166,7 @@ export function SkincareChatSection() {
             <div className="h-[400px] overflow-y-auto p-6 space-y-4">
               {messages.length === 0 ? (
                 <div className="text-center py-8">
-                  <Sparkles className="w-12 h-12 text-primary/30 mx-auto mb-4" />
+                  <Sparkles className="w-12 h-12 text-mint/40 mx-auto mb-4" />
                   <p className="text-muted-foreground mb-6">
                     Olá! Sou a assistente virtual da Erika Akemi. Posso te ajudar com dicas básicas de cuidados com a pele. 💚
                   </p>
@@ -168,7 +175,7 @@ export function SkincareChatSection() {
                       <button
                         key={idx}
                         onClick={() => handleSend(question)}
-                        className="px-4 py-2 bg-sand text-foreground text-sm rounded-full hover:bg-sand-dark transition-colors"
+                        className="px-4 py-2 bg-mint-light text-foreground text-sm rounded-full hover:bg-mint/20 border border-mint/20 transition-colors"
                       >
                         {question}
                       </button>
@@ -184,8 +191,8 @@ export function SkincareChatSection() {
                     <div
                       className={`max-w-[80%] px-4 py-3 rounded-2xl ${
                         msg.role === 'user'
-                          ? 'bg-primary text-primary-foreground rounded-br-md'
-                          : 'bg-sand text-foreground rounded-bl-md'
+                          ? 'bg-gradient-to-r from-rose to-coral text-white rounded-br-md'
+                          : 'bg-mint-light text-foreground rounded-bl-md border border-mint/20'
                       }`}
                     >
                       {msg.role === 'assistant' ? (
@@ -201,11 +208,11 @@ export function SkincareChatSection() {
               )}
               {isLoading && messages[messages.length - 1]?.role === 'user' && (
                 <div className="flex justify-start">
-                  <div className="bg-sand px-4 py-3 rounded-2xl rounded-bl-md">
+                  <div className="bg-mint-light px-4 py-3 rounded-2xl rounded-bl-md border border-mint/20">
                     <div className="flex gap-1">
-                      <span className="w-2 h-2 bg-primary/40 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                      <span className="w-2 h-2 bg-primary/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                      <span className="w-2 h-2 bg-primary/40 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                      <span className="w-2 h-2 bg-mint/50 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                      <span className="w-2 h-2 bg-mint/50 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                      <span className="w-2 h-2 bg-mint/50 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                     </div>
                   </div>
                 </div>
@@ -214,7 +221,7 @@ export function SkincareChatSection() {
             </div>
 
             {/* Input Area */}
-            <div className="p-4 border-t border-border bg-background">
+            <div className="p-4 border-t border-mint/10 bg-background/80 backdrop-blur-sm">
               <div className="flex gap-2">
                 <input
                   type="text"
@@ -222,7 +229,7 @@ export function SkincareChatSection() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Digite sua dúvida sobre skincare..."
-                  className="flex-1 px-4 py-3 bg-card border border-border rounded-full font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="flex-1 px-4 py-3 bg-card border border-mint/20 rounded-full font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-mint/30 transition-all"
                   disabled={isLoading}
                 />
                 <Button
@@ -230,7 +237,7 @@ export function SkincareChatSection() {
                   disabled={!input.trim() || isLoading}
                   variant="hero"
                   size="icon"
-                  className="w-12 h-12"
+                  className="w-12 h-12 bg-gradient-to-r from-mint to-lavender hover:from-mint/90 hover:to-lavender/90"
                 >
                   <Send className="w-5 h-5" />
                 </Button>

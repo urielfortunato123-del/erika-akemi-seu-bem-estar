@@ -54,30 +54,35 @@ export function HowItWorksSection() {
           {steps.map((step, index) => (
             <div 
               key={step.number} 
-              className={`card-modern p-8 text-center group transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-              style={{ transitionDelay: `${200 + index * 100}ms` }}
+              className={`card-modern p-8 text-center group transition-all duration-700 hover:shadow-glow ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-90'}`}
+              style={{ transitionDelay: `${200 + index * 150}ms` }}
             >
               {/* Icon */}
               <div className="relative mx-auto mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto group-hover:bg-primary/20 transition-colors">
-                  <step.icon className="w-7 h-7 text-primary" />
+                <div className={`w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 ${isVisible ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-0 -rotate-12'}`}
+                     style={{ transitionDelay: `${300 + index * 150}ms` }}>
+                  <step.icon className="w-7 h-7 text-primary transition-transform duration-300 group-hover:scale-110" />
                 </div>
                 {/* Number badge */}
-                <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">
+                <div className={`absolute -top-2 -right-2 w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center transition-all duration-500 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}
+                     style={{ transitionDelay: `${400 + index * 150}ms` }}>
                   {step.number}
                 </div>
               </div>
               
-              <h3 className="font-display text-xl md:text-2xl font-medium text-foreground mb-3">
+              <h3 className={`font-display text-xl md:text-2xl font-medium text-foreground mb-3 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                  style={{ transitionDelay: `${450 + index * 150}ms` }}>
                 {step.title}
               </h3>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed">
+              <p className={`font-body text-sm text-muted-foreground leading-relaxed transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                 style={{ transitionDelay: `${500 + index * 150}ms` }}>
                 {step.description}
               </p>
 
               {/* Connection line */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-px bg-gradient-to-r from-primary/30 to-transparent" />
+                <div className={`hidden lg:block absolute top-1/2 -right-4 w-8 h-px bg-gradient-to-r from-primary/30 to-transparent transition-all duration-1000 ${isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}
+                     style={{ transitionDelay: `${600 + index * 150}ms`, transformOrigin: 'left' }} />
               )}
             </div>
           ))}
@@ -95,10 +100,10 @@ export function HowItWorksSection() {
             </p>
             <Button 
               size="lg" 
-              className="btn-modern gradient-primary text-primary-foreground hover:opacity-90 group" 
+              className="btn-modern gradient-primary text-primary-foreground hover:opacity-90 group btn-pulse btn-pop" 
               asChild
             >
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 ripple">
                 Agendar Consulta
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>

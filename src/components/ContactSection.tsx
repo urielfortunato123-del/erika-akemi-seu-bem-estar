@@ -73,11 +73,11 @@ export function ContactSection() {
               <Button 
                 size="lg" 
                 type="submit" 
-                className="w-full btn-modern gradient-primary text-primary-foreground hover:opacity-90 group py-6"
+                className="w-full btn-modern gradient-primary text-primary-foreground hover:opacity-90 group py-6 btn-pulse btn-pop ripple"
               >
                 <span className="flex items-center justify-center gap-2">
                   Enviar pelo WhatsApp
-                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2 group-hover:scale-110" />
                 </span>
               </Button>
             </form>

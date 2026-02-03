@@ -97,11 +97,11 @@ export function AboutSection() {
               {credentials.map((item, index) => (
                 <div 
                   key={item.label}
-                  className="tag-elegant flex items-center gap-3 rounded-full hover-lift"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className={`tag-elegant flex items-center gap-3 rounded-full hover-lift group cursor-default transition-all duration-500 hover:bg-primary/10 hover:border-primary/40 ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-90'}`}
+                  style={{ transitionDelay: `${800 + index * 100}ms` }}
                 >
-                  <item.icon className="w-4 h-4 text-primary" />
-                  {item.label}
+                  <item.icon className="w-4 h-4 text-primary transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12" />
+                  <span className="transition-colors duration-300 group-hover:text-primary">{item.label}</span>
                 </div>
               ))}
             </div>

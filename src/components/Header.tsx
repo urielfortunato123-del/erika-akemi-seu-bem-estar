@@ -35,7 +35,7 @@ export function Header() {
       <div className="container-narrow flex items-center justify-between">
         {/* Logo */}
         <a href="#inicio" className="flex items-center gap-2">
-          <span className="font-display text-2xl md:text-3xl font-semibold text-foreground tracking-tight">
+          <span className="font-display text-2xl md:text-3xl font-semibold bg-gradient-to-r from-rose to-coral bg-clip-text text-transparent tracking-tight">
             Erika Akemi
           </span>
         </a>
@@ -46,7 +46,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+              className="font-body text-sm text-muted-foreground hover:text-rose transition-colors duration-200"
             >
               {item.label}
             </a>
@@ -80,7 +80,7 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="font-body text-base text-muted-foreground hover:text-foreground transition-colors py-2"
+                className="font-body text-base text-muted-foreground hover:text-rose transition-colors py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
